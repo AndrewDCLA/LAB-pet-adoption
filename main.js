@@ -8,7 +8,7 @@ const pets = [
       imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
     },
     {
-        id: 2,
+      id: 2,
       name: "Trouble",
       color: "Brown",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
