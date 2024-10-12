@@ -246,6 +246,7 @@ const pets = [
 
 const petsAll = document.getElementById("petAdoptionCards");
 
+// Error handling for image links that won't load. <<<< NOT WORKING
 for (const pet of pets) {
   if (pet.type === "cat") {
     pet.backUpImg === "backUpCat.jpg"
@@ -256,11 +257,14 @@ for (const pet of pets) {
   }
 }
 
-//This clears the page
 
+// This should be rendering the cards to the DOM <<<< NOT WORKING
 
 pets.forEach((pet) => {
+
+  //clears the page
   let domString = ""
+
   domString += `<div class="card" style="width: 18rem;">
       <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name} onerror="this.onerror=null;this.src='${pets[pet].backUpImg}';">
       <div class="card-body">
@@ -273,12 +277,13 @@ pets.forEach((pet) => {
 });
 
 
-
+// Filter Buttons
 const showAllBtn = document.querySelector("#btn-all")
 const showCatsBtn = document.querySelector("#btn-cats")
 const showDogsBtn = document.querySelector("#btn-dogs")
 const showDinosBtn = document.querySelector("#btn-dinos")
 
+// This should make a new array with only the filtered elements
 const filter = (pets, type) => {
   const typeArray = [];
 
@@ -291,6 +296,7 @@ const filter = (pets, type) => {
   return typeArray;
 };
 
+// Event listeners for the buttons
 showAllBtn.addEventListener("click", () => {
   filter(pets);
 });
