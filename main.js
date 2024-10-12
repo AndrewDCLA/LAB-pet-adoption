@@ -244,16 +244,16 @@ const pets = [
 
 const petsAll = document.getElementById("petAdoptionCards");
 
-  let domString = "";
-  pets.forEach((pet) => {
+let domString = "";
+pets.forEach((pet) => {
 
-    domString += `<div class="card" style="width: 18rem;">
-        <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
-        <div class="card-body">
-          <h5 class="card-title">${pet.name}</h5>
-          <p class="card-text">${pet.color}</p>
-        </div>
-      </div>`;
-  });
+  domString += `<div class="card" style="width: 18rem;">
+      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+      <div class="card-body">
+        <h5 class="card-title">${pet.name}</h5>
+        <p class="card-text">${pet.color}</p>
+      </div>
+    </div>`;
+});
 
   petsAll.innerHTML = domString;
