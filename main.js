@@ -242,18 +242,36 @@ const pets = [
   ];
 
 
+
+
 const petsAll = document.getElementById("petAdoptionCards");
 
+
+
+for (const pet of pets) {
+  if (pet.type === "cat") {
+    pet.backUpImg === "backUpCat.jpg"
+  } else if (pet.type === "dog") {
+    pet.backUpImg === "backUpDog.jpg"
+  } else {
+    pet.backUpImg === "backUpDino.jpeg"
+  }
+}
+
+//This clears the page
 let domString = "";
+
 pets.forEach((pet) => {
 
   domString += `<div class="card" style="width: 18rem;">
-      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
+      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name} onerror="this.onerror=null;this.src='${pets[i].backUpImg}';">
       <div class="card-body">
         <h5 class="card-title">${pet.name}</h5>
         <p class="card-text">${pet.color}</p>
       </div>
     </div>`;
+
+
 });
 
   petsAll.innerHTML = domString;
