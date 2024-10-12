@@ -246,8 +246,6 @@ const pets = [
 
 const petsAll = document.getElementById("petAdoptionCards");
 
-
-
 for (const pet of pets) {
   if (pet.type === "cat") {
     pet.backUpImg === "backUpCat.jpg"
@@ -259,19 +257,52 @@ for (const pet of pets) {
 }
 
 //This clears the page
-let domString = "";
+
 
 pets.forEach((pet) => {
-
+  let domString = ""
   domString += `<div class="card" style="width: 18rem;">
-      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name} onerror="this.onerror=null;this.src='${pets[i].backUpImg}';">
+      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name} onerror="this.onerror=null;this.src='${pets[pet].backUpImg}';">
       <div class="card-body">
         <h5 class="card-title">${pet.name}</h5>
         <p class="card-text">${pet.color}</p>
       </div>
     </div>`;
 
-
+  petsAll.innerHTML = domString;
 });
 
-  petsAll.innerHTML = domString;
+
+
+const showAllBtn = document.querySelector("#btn-all")
+const showCatsBtn = document.querySelector("#btn-cats")
+const showDogsBtn = document.querySelector("#btn-dogs")
+const showDinosBtn = document.querySelector("#btn-dinos")
+
+const filter = (pets, type) => {
+  const typeArray = [];
+
+  for (const pet of pets) {
+    if (pet.type === type) {
+      typeArray.push(pet);
+    }
+  }
+
+  return typeArray;
+};
+
+showAllBtn.addEventListener("click", () => {
+  filter(pets);
+});
+
+showCatsBtn.addEventListener("click", () => {
+  filter(pets, "cat");
+});
+
+showDogsBtn.addEventListener("click", () => {
+  filter(pets, "dog");
+});
+
+showDinosBtn.addEventListener("click", () => {
+  filter(pets, "dino");
+});
