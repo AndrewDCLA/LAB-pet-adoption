@@ -242,73 +242,18 @@ const pets = [
   ];
 
 
-
-
 const petsAll = document.getElementById("petAdoptionCards");
 
-// Error handling for image links that won't load. <<<< NOT WORKING
-for (const pet of pets) {
-  if (pet.type === "cat") {
-    pet.backUpImg === "backUpCat.jpg"
-  } else if (pet.type === "dog") {
-    pet.backUpImg === "backUpDog.jpg"
-  } else {
-    pet.backUpImg === "backUpDino.jpeg"
-  }
-}
-
-
-// This should be rendering the cards to the DOM <<<< NOT WORKING
-
+let domString = "";
 pets.forEach((pet) => {
 
-  //clears the page
-  let domString = ""
-
   domString += `<div class="card" style="width: 18rem;">
-      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name} onerror="this.onerror=null;this.src='${pets[pet].backUpImg}';">
+      <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
       <div class="card-body">
         <h5 class="card-title">${pet.name}</h5>
         <p class="card-text">${pet.color}</p>
       </div>
     </div>`;
+});
 
   petsAll.innerHTML = domString;
-});
-
-
-// Filter Buttons
-const showAllBtn = document.querySelector("#btn-all")
-const showCatsBtn = document.querySelector("#btn-cats")
-const showDogsBtn = document.querySelector("#btn-dogs")
-const showDinosBtn = document.querySelector("#btn-dinos")
-
-// This should make a new array with only the filtered elements
-const filter = (pets, type) => {
-  const typeArray = [];
-
-  for (const pet of pets) {
-    if (pet.type === type) {
-      typeArray.push(pet);
-    }
-  }
-
-  return typeArray;
-};
-
-// Event listeners for the buttons
-showAllBtn.addEventListener("click", () => {
-  filter(pets);
-});
-
-showCatsBtn.addEventListener("click", () => {
-  filter(pets, "cat");
-});
-
-showDogsBtn.addEventListener("click", () => {
-  filter(pets, "dog");
-});
-
-showDinosBtn.addEventListener("click", () => {
-  filter(pets, "dino");
-});
