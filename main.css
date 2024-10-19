@@ -5,3 +5,22 @@ body {
   background: rgb(63,63,84);
   background: linear-gradient(90deg, rgba(63,63,84,1) 2%, rgba(36,58,70,1) 63%, rgba(7,54,62,1) 94%); 
 }
+
+
+.card_container {
+  display: flex;
+  padding-block: 2rem;
+  
+}
+
+
+.card {
+  display: flex;
+  flex-direction: wrap;
+  border-radius: 1.5rem;
+
+}
+
+.card-img-top {
+  border-radius: 1.5rem;
+}

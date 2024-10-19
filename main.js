@@ -242,7 +242,11 @@ const pets = [
   ];
 
 
+
+// Declaring all of the DOM elements
 const petsAll = document.getElementById("petAdoptionCards");
+
+
 
 let domString = "";
 pets.forEach((pet) => {
