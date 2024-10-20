@@ -247,17 +247,53 @@ const pets = [
 const petsAll = document.getElementById("petAdoptionCards");
 
 
+// This renders all of the profile cards to the DOM
 
 let domString = "";
 pets.forEach((pet) => {
-
   domString += `<div class="card" style="width: 18rem;">
       <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
       <div class="card-body">
         <h5 class="card-title">${pet.name}</h5>
         <p class="card-text">${pet.color}</p>
+        <button class="btn btn-danger" id="delete--${pet.id}">Remove Profile</button>
       </div>
     </div>`;
 });
 
   petsAll.innerHTML = domString;
+
+
+  const filterPets = (pets, type) => {
+    const petTypes= [];
+  
+    pets.forEach((pet) => {
+      if (pet.type === type) {
+        petTypes.push(pet);
+      }
+    });
+  
+    return petTypes;
+  };
+  
+
+
+const form = document.querySelector('newPetInfo');
+
+
+const createPet = (e) => {
+  e.preventDefault(); 
+
+  const newPet = {
+    id: pets.length + 1,
+    name: document.querySelector("#name").value,
+    type: document.querySelector("#type").value,
+    color: document.querySelector("#color").value,
+    imageUrl: document.querySelector("#imageUrl").value
+  }
+
+  team.push(newPet);
+  form.reset();
+}
+
+newPetInfo.addEventListener('form-submit', createPet);
