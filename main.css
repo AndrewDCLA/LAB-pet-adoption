@@ -15,9 +15,8 @@ body {
 
 
 .card {
-  display: flex;
-  flex-direction: wrap;
   border-radius: 1.5rem;
+  display: flex;
 
 }
 
